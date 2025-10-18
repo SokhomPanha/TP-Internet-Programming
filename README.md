@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # E-commerce
 
 This template should help get you started developing with Vue 3 in Vite.
@@ -65,3 +66,6 @@ npm run test:e2e -- tests/example.spec.ts
 # Runs the tests in debug mode
 npm run test:e2e -- --debug
 ```
+=======
+# TP-Internet-Programming
+>>>>>>> 6a6444dde6c4dbdc12e93c25848ef8aac0a4dcdd
