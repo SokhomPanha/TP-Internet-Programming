@@ -96,6 +96,7 @@ const item_poster: PosterItem[] = [
 
 .poster_btt {
   color: #fff;
+  width: 150px;
   border: none;
   border-radius: 8px;
   padding: 10px 18px;
