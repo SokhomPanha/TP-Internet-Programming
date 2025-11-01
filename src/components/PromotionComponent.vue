@@ -1,4 +1,5 @@
 <script setup lang="ts">
+// Define your PosterItem class
 class PosterItem {
   img: string
   label: string
@@ -15,6 +16,7 @@ class PosterItem {
   }
 }
 
+// Local data for posters
 const item_poster: PosterItem[] = [
   new PosterItem(
     'image/Cms-1.png',
@@ -38,6 +40,11 @@ const item_poster: PosterItem[] = [
     '#E7EAF3',
   ),
 ]
+
+// Function to handle button click
+function shopNow(promotion: PosterItem) {
+  alert("Let's shop: " + promotion.label)
+}
 </script>
 
 <template>
@@ -46,7 +53,13 @@ const item_poster: PosterItem[] = [
       <div class="poster_main" :style="{ backgroundColor: item.bg_color }">
         <div class="poster_content">
           <span class="poster_label">{{ item.label }}</span>
-          <button class="poster_btt" :style="{ backgroundColor: item.btt_color }">
+
+          <!-- ✅ Click event added here -->
+          <button
+            class="poster_btt"
+            :style="{ backgroundColor: item.btt_color }"
+            @click="shopNow(item)"
+          >
             {{ item.btt_label }}
           </button>
         </div>

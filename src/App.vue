@@ -3,7 +3,7 @@
 <template>
   <main>
     <CategoryComponent />
-    <PosterComponent />
+    <PromotionComponent />
   </main>
 </template>
 
