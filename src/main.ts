@@ -7,5 +7,5 @@ import PromotionComponent from '@/components/PromotionComponent.vue'
 
 createApp(App)
   .component('CategoryComponent', CategoryComponent)
-  .component('PosterComponent', PromotionComponent)
+  .component('PromotionComponent', PromotionComponent)
   .mount('#app')
