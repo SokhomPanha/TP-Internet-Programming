@@ -1,15 +1,25 @@
 <template>
-  <div class="categories-wrapper">
-    <div class="categories">
+  <div class="w-full">
+    <div class="grid  xl:grid-cols-10 gap-4 p-4">
       <div
-        class="category-card"
+        class="flex flex-col items-center justify-center p-6 rounded-2xl cursor-pointer transition-all duration-300 hover:shadow-lg hover:scale-105 border border-gray-100"
         v-for="(cat, index) in categories"
         :key="index"
         :style="{ backgroundColor: cat.color }"
       >
-        <img :src="`http://localhost:3000/${cat.image}`" :alt="cat.name" />
-        <h4>{{ cat.name }}</h4>
-        <p>{{ cat.productCount }} items</p>
+        <div class="w-24 h-32 mb-3 flex items-center justify-center">
+          <img 
+            :src="`http://localhost:3000/${cat.image}`" 
+            :alt="cat.name"
+            class="w-full h-full object-contain"
+          />
+        </div>
+        <h4 class="text-base font-semibold text-gray-800 text-center mb-1">
+          {{ cat.name }}
+        </h4>
+        <p class="text-sm text-gray-500">
+          {{ cat.productCount }} items
+        </p>
       </div>
     </div>
   </div>
@@ -25,44 +35,5 @@ export default {
 </script>
 
 <style scoped>
-.categories-wrapper {
- 
-  padding-bottom: 15px;
-}
-
-.categories {
-  display: flex;
-  gap: 20px;
-  min-width: max-content;
-}
-
-.category-card {
-  min-width: 110px;
-  text-align: center;
-  padding: 18px;
-  border-radius: 10px;
-  transition: 0.3s;
-  border: 1px solid #eee;
-}
-
-.category-card img {
-  width: 60px;
-  height: 60px;
-  margin-bottom: 8px;
-}
-
-.category-card h4 {
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.category-card p {
-  font-size: 12px;
-  color: gray;
-}
-
-.category-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-}
+/* No custom styles needed - all handled by Tailwind */
 </style>

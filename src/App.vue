@@ -1,33 +1,36 @@
 <template>
-  <div class="home">
-
+  <div class="home ml-[50px] mr-[50px]">
+    <MenuComponent/>
     <CategoryListLocal :categories="categories" />
     <PromotionListLocal :promotions="promotions" />
-
+    <MenuComponent/>
+    <GroupProductslocal :product="product" />
+    
   </div>
 </template>
 
 <script>
 import axios from "axios";
-
-import CategoryList from "./components/CategoryComponent.vue";
-import PromotionList from "./components/PromotionComponent.vue";
+import CategoryComponent from "./components/CategoryComponent.vue";
+import PromotionComponent from "./components/PromotionComponent.vue";
+import MenuComponent from "./components/MenuComponent.vue";
+import ProductComponet from "./components/ProductComponent.vue";
 
 export default {
   name: "Home",
-
   components: {
-    CategoryListLocal: CategoryList,
-    PromotionListLocal: PromotionList,
+    MenuComponent,
+    CategoryListLocal: CategoryComponent,
+    PromotionListLocal: PromotionComponent,
+    GroupProductslocal: ProductComponet,
   },
-
   data() {
     return {
       categories: [], 
-      promotions: []  
+      promotions: [],
+      product: []
     };
   },
-
   methods: {
     async fetchCategories() {
       try {
@@ -38,7 +41,6 @@ export default {
         console.error("Error loading categories:", err);
       }
     },
-
     async fetchPromotions() {
       try {
         const res = await axios.get("http://localhost:3000/api/promotions");
@@ -48,20 +50,27 @@ export default {
         console.error("Error loading promotions:", err);
       }
     },
+    async fetchProducts() {
+      try {
+        const res = await axios.get("http://localhost:3000/api/products");
+        console.log("API Response:", res);
+        console.log("Response data:", res.data);
+        this.product = res.data;
+        console.log("Loaded products:", this.product);
+        console.log("Product count:", this.product.length);
+      } catch (err) {
+        console.error("Error loading products:", err);
+        console.error("Error details:", err.response);
+      }
+    },
   },
-
   mounted() {
-   
     this.fetchCategories();
     this.fetchPromotions();
+    this.fetchProducts();
   }
 };
 </script>
 
 <style scoped>
-.home {
-  max-width: 1200px;
-  margin: auto;
-  padding: 40px 20px;
-}
 </style>

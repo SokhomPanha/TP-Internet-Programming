@@ -1,11 +1,14 @@
 import './assets/main.css'
 
 import { createApp } from 'vue'
-import App from './App.vue'
-import CategoryComponent from '@/components/CategoryComponent.vue'
-import PromotionComponent from '@/components/PromotionComponent.vue'
+import { createPinia } from 'pinia'
 
-createApp(App)
-  .component('CategoryComponent', CategoryComponent)
-  .component('PromotionComponent', PromotionComponent)
-  .mount('#app')
+import App from './App.vue'
+import router from './router'
+
+const app = createApp(App)
+
+app.use(createPinia())
+app.use(router)
+
+app.mount('#app')
