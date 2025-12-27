@@ -6,5 +6,23 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    //
+    // Get / api/categories
+    public function getCategories(){
+        return ["message" => "Getting list of categories"];
+    }
+    // Post / api/categories
+    public function createCategory(){
+        return ["message" => "Creating a new category"];
+    }
+    // Get / api/categories/{categoryId}
+    public function getCategory($categoryId){
+        return ["message" => "Getting 1 category base on given categoryId"];
+    }
+    public function updateCategory($categoryId){
+        return ["message" => "Updating a category base on given categoryId"];
+    }
+
+    public function deleteCategory($categoryId){
+        return ["message" => "Deleting a category base on given categoryId"];
+    }
 }
